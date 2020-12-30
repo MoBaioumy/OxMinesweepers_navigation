@@ -13,21 +13,29 @@ NOTE: This is not a exact representation of how the robot will drive (we need to
 
 ## Dependancies
 jackal_simulator
+
 [Source Code](https://github.com/jackal/jackal_simulator)
+
 `sudo apt install ros-melodic-jackal-simulator ros-melodic-position-controllers`
 
 ## Building
 
 **Create Catkin Workspace**
 `mkdir -p <your own workspace>/src`
+
 `cd <your own workspace>`
+
 `catkin init`
+
 `cd src`
+
 <--clone this repo here-->
 
 **Build**
 `catkin build`
+
 `cd <your own workspace>/src`
+
 `source ../devel/setup.bash`
 
 ## Run
@@ -37,18 +45,24 @@ jackal_simulator
 **Navigation**
 C++ Version
 1)
+
 `rosrun robot monitor`
+
 You should see the linear and angular speed of the robot printed in terminal
 
 2)
+
 `rosrun robot move`
+
 Under gazebo, you should see the robot moving in a circle.
 
 Python Version
 1)
+
 `rosrun robot monitor_py.py`
 
 2)
+
 `rosrun robot move_py.py`
 
 Warning: If you encounter an error that says you dont have permission to run these script
