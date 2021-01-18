@@ -212,3 +212,7 @@ catkin_install_python(PROGRAMS src/set_goal.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
+catkin_install_python(PROGRAMS src/parser.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
