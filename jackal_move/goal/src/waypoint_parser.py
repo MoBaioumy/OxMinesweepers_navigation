@@ -12,9 +12,9 @@ def parser(path_name):
 		set_goal(float(pose[0]),float(pose[1]),float(pose[2]))
 
 if __name__ == '__main__':
-	rospy.init_node('movebase_client_parser')
-	#Enter the full path of the coordinates
-	#Coordinates must be in the format
-	#x y arg
-	input_file="/home/daoxin/OXMinesweeper/src/jackal_move/goal/src/test_world_objective.txt"
-	parser(input_file)
+    rospy.init_node('waypoint_parser')
+    #Enter the full path of the coordinates
+    #Coordinates must be in the format
+    #x y arg
+    input_file = rospy.get_param("/waypoint_parser/waypoints_file")
+    parser(input_file)
