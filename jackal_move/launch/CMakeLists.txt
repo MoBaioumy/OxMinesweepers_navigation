@@ -1,12 +1,25 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(launch)
 
-find_package(catkin REQUIRED COMPONENTS roslaunch)
 
-catkin_package()
+set(CATKIN_PACKAGE_DEPENDENCIES
+    rospy
+    jackal_viz
+    jackal_navigation
+    position_controllers
+    goal
+    robot
+)
 
-roslaunch_add_file_check(launch/test_world.launch)
+find_package(catkin REQUIRED COMPONENTS ${CATKIN_PACKAGE_DEPENDENCIES})
+
+catkin_package(
+  CATKIN_DEPENDS
+    ${CATKIN_PACKAGE_DEPENDENCIES}
+)
+
 
 install(DIRECTORY launch worlds
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
+

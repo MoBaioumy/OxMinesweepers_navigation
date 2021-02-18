@@ -16,7 +16,9 @@ jackal_simulator
 
 [Source Code](https://github.com/jackal/jackal_simulator)
 
-`sudo apt install ros-melodic-jackal-simulator ros-melodic-position-controllers`
+Other dependancies
+
+`sudo apt install ros-melodic-jackal-viz ros-melodic-jackal-navigation ros-melodic-position-controllers`
 
 ## Building
 
