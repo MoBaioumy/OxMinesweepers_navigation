@@ -1,23 +1,22 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>goal</name>
+  <name>launch</name>
   <version>0.0.0</version>
-  <description>The goal package</description>
+  <description>The launch package</description>
 
 
   <maintainer email="daoxin@todo.todo">daoxin</maintainer>
 
+
   <license>TODO</license>
 
   <buildtool_depend>catkin</buildtool_depend>
-  <depend>geometry_msgs</depend>
-  <depend>roscpp</depend>
   <depend>rospy</depend>
-  <depend>std_msgs</depend>
-  <depend>move_base_msgs</depend>
-  <depend>actionlib</depend>
-
-
+  <depend>jackal_viz</depend>   
+  <depend>jackal_navigation</depend>   
+  <depend>position_controllers</depend>   
+  <depend>goal</depend>    
+  <depend>robot</depend> 
   <export>
 
   </export>

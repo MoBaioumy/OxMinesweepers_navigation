@@ -16,7 +16,9 @@ jackal_simulator
 
 [Source Code](https://github.com/jackal/jackal_simulator)
 
-`sudo apt install ros-melodic-jackal-simulator ros-melodic-position-controllers`
+Other dependancies
+
+`sudo apt install ros-melodic-jackal-viz ros-melodic-jackal-navigation ros-melodic-position-controllers`
 
 ## Building
 
@@ -40,9 +42,14 @@ jackal_simulator
 
 ## Run
 **Simulator**
-`roslaunch jackal_gazebo jackal_world.launch config:=front_laser`
+
+To simplify the start up and testing process, the shell script `OXMS_demo.sh` has been provided to launch all the necessary ROS processes.
+
+Simply enter Terminal from where the script is located and type
+`./OXMS_demo.sh`
 
 **Navigation**
+This allows you to directly control how much you want to move and turn the robot.
 C++ Version
 1)
 
@@ -65,7 +72,30 @@ Python Version
 
 `rosrun robot move_py.py`
 
-Warning: If you encounter an error that says you dont have permission to run these script
+**Goal Setting**
+This allow us to hijack the ROS Navigation Stack and set a custom target for the odometry to reach.
+
+So this will only work if you are already running `roslaunch jackal_navigation odom_navigation_demo.launch`
+
+1)
+`rosrun goal set_goal.py`
+This allows you to inject a specific x,y,orientation for the jackal to move to
+
+2)
+`rosrun goal parser.py`
+This allows you to put all the destination you want your robot to reach in a list and it will move the robot to each location oen by one
+
+Note: Currently to change which text document you want the parser to parse, you must go edit the file path in the python script directly
+
+**Test World**
+
+`./nav_test.sh`
+`roslaunch launch test_world.launch`
+This put jackal in the temporary test world I have made.
+
+
+**Known Issues**
+If you encounter an error that says you dont have permission to run these script or it tells you that `Couldn't find executable named <file_name>`
 
 Go to the folder where the python scripts are found
 
