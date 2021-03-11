@@ -16,5 +16,5 @@ if __name__ == '__main__':
     #Enter the full path of the coordinates
     #Coordinates must be in the format
     #x y arg
-    input_file = rospy.get_param("/waypoint_parser/waypoints_file")
+    input_file = rospy.get_param("/waypoint_parser/waypoints_file","/home/daoxin/minesweeper/src/jackal_move/goal/src/test_world_objective.txt")
     parser(input_file)

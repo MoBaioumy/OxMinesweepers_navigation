@@ -43,34 +43,22 @@ Other dependancies
 ## Run
 **Simulator**
 
-To simplify the start up and testing process, the shell script `OXMS_demo.sh` has been provided to launch all the necessary ROS processes.
+To simplify the start up and testing process, the shell script `./empty_world.sh` has been provided to launch all the necessary ROS processes.
 
 Simply enter Terminal from where the script is located and type
-`./OXMS_demo.sh`
+`./empty_world.sh`
 
 **Navigation**
-This allows you to directly control how much you want to move and turn the robot.
-C++ Version
-1)
+This allows you to directly control how much you want to move and turn the robot. This implemented mainly for manual control of the robot
 
-`rosrun robot monitor`
+`rosrun odom monitor_odom.py`
 
-You should see the linear and angular speed of the robot printed in terminal
+Allows you to see the current twist of the robot
 
-2)
 
-`rosrun robot move`
+`rosrun odom set_odom.py`
 
-Under gazebo, you should see the robot moving in a circle.
-
-Python Version
-1)
-
-`rosrun robot monitor_py.py`
-
-2)
-
-`rosrun robot move_py.py`
+Allows you to inject a custom twist to the robot.
 
 **Goal Setting**
 This allow us to hijack the ROS Navigation Stack and set a custom target for the odometry to reach.
@@ -79,13 +67,17 @@ So this will only work if you are already running `roslaunch jackal_navigation o
 
 1)
 `rosrun goal set_goal.py`
-This allows you to inject a specific x,y,orientation for the jackal to move to
+This allows you to inject a specific x,y,orientation for the jackal to move to at
+
+You can now enter each variable directly
 
 2)
-`rosrun goal parser.py`
-This allows you to put all the destination you want your robot to reach in a list and it will move the robot to each location oen by one
+`rosrun goal waypoint_parser.py`
+This allows you to put all the destination you want your robot to reach in a list and it will move the robot to each location one by one
 
-Note: Currently to change which text document you want the parser to parse, you must go edit the file path in the python script directly
+To change which parser list you want to run: Please edit the path under `jackal_move/launch/launch/launch_all.launch`
+
+However, right now this function is broken. So the best way is still to go into the python file and edit the address of the objective list manually.
 
 **Test World**
 
@@ -99,5 +91,9 @@ If you encounter an error that says you dont have permission to run these script
 
 Go to the folder where the python scripts are found
 
-chmod 777 <filename>
+`chmod 777 <filename>`
+
+Or just change the permission of the entire folder
+
+`chmod -p 777 <foldername>`
 
