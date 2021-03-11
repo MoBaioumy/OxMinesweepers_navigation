@@ -16,7 +16,7 @@
   <depend>jackal_navigation</depend>   
   <depend>position_controllers</depend>   
   <depend>goal</depend>    
-  <depend>robot</depend> 
+  <depend>odom</depend> 
   <export>
 
   </export>

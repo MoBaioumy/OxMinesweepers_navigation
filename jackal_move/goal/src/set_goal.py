@@ -32,9 +32,14 @@ def set_goal(target_x,target_y,target_arg):
 if __name__ == '__main__':
     try:
 	rospy.init_node('movebase_client_py')
-        set_goal(2,-2,0)
-	set_goal(2,2,math.pi/2)
-	set_goal(-2,2,math.pi)
-	set_goal(-2,-2,math.pi*1.5)
+	coord=[0,0,0]
+        input_str=input("Enter x : ")
+	coord[0]=float(input_str)
+        input_str=input("Enter y : ")
+	coord[1]=float(input_str)
+        input_str=input("Enter arg : ")
+	coord[2]=float(input_str)
+	print(coord)
+	set_goal(coord[0],coord[1],coord[2])
     except rospy.ROSInterruptException:
         pass

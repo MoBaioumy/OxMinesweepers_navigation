@@ -8,7 +8,7 @@ set(CATKIN_PACKAGE_DEPENDENCIES
     jackal_navigation
     position_controllers
     goal
-    robot
+    odom
 )
 
 find_package(catkin REQUIRED COMPONENTS ${CATKIN_PACKAGE_DEPENDENCIES})
