@@ -1,0 +1,25 @@
+How to Connect your machine to jackal
+1) Connect to jackal-101-wlan
+2) Password: syntheticfastorange
+3) Go to terminal
+4) ssh ori@192.168.1.11
+5) Password: bl0ckmaniawa$p
+6) This should allow us to log into ori@ori-mvc-nuc-006 (the mvc of the Jackal)
+7) To inject a custom velocity: rostopic pub /jackal_velocity_controller/cmd_vel, press tab a few times so that you can inject a custom topic 
+
+This should be the full command rostopic pub /jackal_velocity_controller/cmd_vel geometry_msgs/Twist "linear:
+  x: 0.1
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 0.0" 
+
+
+
+How to edit the rostopic from client machine
+8) Go to terminal on client machine
+9) export ROS_MASTER_URI=http://192.168.1.10:11311
+10) export ROS_IP="192.168.104.148
+11) 

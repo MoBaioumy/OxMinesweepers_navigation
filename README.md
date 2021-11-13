@@ -1,24 +1,18 @@
 # OxMinesweepers_navigation
-Repository for the navigation team of OxMinesweepers 2020/2021
-
-
-This a slightly modified version of the ROS talker and listener node that serves as a proof of concept of how the Jackal’s geometry_msgs.
-http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29
-
-However, the version of catkin we are using is 
-https://catkin-tools.readthedocs.io/en/latest/installing.html
-
-NOTE: This is not a exact representation of how the robot will drive (we need to take into account of  Achermann steering geometry). But as a starting point to software, this should be sufficient.
-
 
 ## Dependancies
-jackal_simulator
+
+Catkin Tools: https://catkin-tools.readthedocs.io/en/latest/installing.html
+
+Jackal_simulator: 
 
 [Source Code](https://github.com/jackal/jackal_simulator)
 
-Other dependancies
+To install the jackal simulator: 
 
 `sudo apt install ros-melodic-jackal-viz ros-melodic-jackal-navigation ros-melodic-position-controllers`
+
+Here is the [documentation] (https://www.clearpathrobotics.com/assets/guides/melodic/jackal/simulation.html) on Clear Sense's website.
 
 ## Building
 
@@ -40,37 +34,26 @@ Other dependancies
 
 `source ../devel/setup.bash`
 
+Note: To be able to run the packages, you need to run the last command on every terminal, it is recommended that this line is added to you ~/.bashrc file to simplify testing.
+
 ## Run
 **Simulator**
 
-To simplify the start up and testing process, the shell script `OXMS_demo.sh` has been provided to launch all the necessary ROS processes.
+To test whether jackal simulator is working properly, run `./OXMS_demo.sh`
 
-Simply enter Terminal from where the script is located and type
-`./OXMS_demo.sh`
-
-**Navigation**
-This allows you to directly control how much you want to move and turn the robot.
-C++ Version
-1)
-
-`rosrun robot monitor`
-
-You should see the linear and angular speed of the robot printed in terminal
-
-2)
-
-`rosrun robot move`
-
-Under gazebo, you should see the robot moving in a circle.
-
-Python Version
-1)
+**Testing**
+The package serves to ensure that everything is running properly.
 
 `rosrun robot monitor_py.py`
-
-2)
+The linear and angular speed of the robot will be printed in the terminal
 
 `rosrun robot move_py.py`
+Under gazebo, you should see the robot moving in a circle.
+
+Legacy C++ Version
+`rosrun robot monitor`
+
+`rosrun robot move`
 
 **Goal Setting**
 This allow us to hijack the ROS Navigation Stack and set a custom target for the odometry to reach.
@@ -100,4 +83,6 @@ If you encounter an error that says you dont have permission to run these script
 Go to the folder where the python scripts are found
 
 chmod 777 <filename>
+
+WARNING: This is the nuclear option, it is not a good idea to give everyone permission to access the files. I need to come up with a way to fix this
 
